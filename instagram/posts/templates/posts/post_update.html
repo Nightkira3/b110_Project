@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновить пост</title>
+</head>
+<body>
+    <h1>Обновление поста</h1>
+    <form action="{% url 'posts:post-update' post.pk %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update!</button>
+    </form>
+</body>
+</html>

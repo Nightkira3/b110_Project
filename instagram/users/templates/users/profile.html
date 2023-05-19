@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{header}}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+    <a href="{% url 'posts:index' %}">Главная</a>
+</head>
+<body>
+    <h1>{{header}}</h1>
+    {% if user.id == profile.id %}
+        <a href="{% url 'users:edit_profile' %}">Редактировать профиль</a>
+    {% elif request.user.is_authenticated %}
+        <form action="{% url 'users:add_remove_friend' profile.id  %}" method="post">
+            {% csrf_token %}
+            {% if profile in user.my_friends.all %}
+             <button type="submit">Удалить из друзей</button>
+            {% else %}
+            <button type="submit">Добавить в друзья</button>
+            {% endif %}
+        </form>
+    {% endif %}
+
+    <h2>Информация:</h2>
+    {% if profile.avatar %}
+        <img class="avatar" src="{{profile.avatar.url}}" alt="avatar">
+    {% else %}
+        <img class="avatar" src="{% static 'users/images/avatar.jpg' %}" alt="avatar">
+    {% endif %}
+    <p>Имя аккаунта: {{ profile.username }}</p>
+    <p>Имя: {{ profile.first_name }}</p>
+    <p>Фамилия: {{ profile.last_name }}</p>
+    <p>Дата рождения: {{ profile.birth_date|date:"d M Y" }}</p>
+    <p>О Вас: {{ profile.about|linebreaks }}</p>
+    <p>Email: {{ profile.email }}</p>
+    <p>Номер телефона: {{ profile.phone_number }}</p>
+</body>
+</html>

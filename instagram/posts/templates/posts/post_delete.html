@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаление поста</title>
+</head>
+<body>
+    <form action="{% url 'posts:post-delete' post.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Подтверждение удаления</button>
+    </form>
+</body>
+</html>

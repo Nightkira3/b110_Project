@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Базовый шаблон
+        {% endblock title %}
+    </title>
+</head>
+<body>
+    {% include 'header.html' %}
+    {% include 'menu.html' %}
+
+    {% block content %}
+        <h1>Пусто</h1>
+    {% endblock content %}
+
+    {% include 'footer.html' %}
+</body>
+</html>
