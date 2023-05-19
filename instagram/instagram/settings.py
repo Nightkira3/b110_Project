@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-^4z82yvd)^%mq*vht)@*mc$mh=1*w_g7&&jhn+v6b)yoc-o)=&
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djinxik.pythonanywhere.com']
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
