@@ -12,7 +12,7 @@
         {{ form.as_p }}
         <button type="submit">Войти</button>
     </form>
-    <form action="https://djinxik.pythonanywhere.com/signup/" method="post" >
+    <a href="{% url 'users:signup' %}" ></a>
         {% csrf_token %}
         <button type="submit">Регистрация</button>
     </body>
