@@ -12,7 +12,8 @@
         {{ form.as_p }}
         <button type="submit">Войти</button>
     </form>
-    <form action="users:signup" target="_blank">
+    <form action="https://djinxik.pythonanywhere.com/signup/" method="post" >
+        {% csrf_token %}
         <button type="submit">Регистрация</button>
     </body>
 </html>
